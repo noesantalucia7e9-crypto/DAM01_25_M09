@@ -9,6 +9,7 @@
 
 <body>
     <p id="3"></p>
+    <p id="8"></p>
     <script>
 
         function saludar(nombre = "Noe", saludo = "Hola") {
@@ -17,14 +18,29 @@
 
             return resultado
         }
+        function calcular(num1, num2, operacion = "suma") {
+
+            switch (operacion) {
+                case "suma": return num1 + num2
+                    break
+                case "multiplicacio": return num1 * num2
+                    break
+                case "divisio": return num1 / num2
+                    break
+            }
+
+
+            var resultado = calcular(4, 4, "multiplicar")
+            return resultado
+        }
         var holaa = saludar("Gabri")
         let x = document.getElementById(3)
 
         x.textContent = holaa
 
-        function calcular(num1, num2, operacion) {
-            
-        }
+        let y = document.getElementById(8)
+        var operacio = calcular(4, 4, "multiplicacio")
+        y.textContent = operacio
     </script>
 </body>
 
