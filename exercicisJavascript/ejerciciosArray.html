@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicis array</title>
+    <link rel="icon" href="../recursos/rosado.png">
+
+</head>
+
+<body>
+    <div style=" margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
+    <h3>Ej1</h3>
+    <p>Resultado:</p>
+    <p id="1"></p>
+    </div>
+    <div style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
+        <h3>Ej2</h3>
+        <p>Resultado:</p>
+        <p id="2"></p>
+    </div>
+    <div style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
+        <h3>Ej3</h3>
+        <p>Resultado:</p>
+        <p id="3"></p>
+    </div>
+    <script>
+        //problema 1
+        let sumarPares = [2, 4, 5, 6, 7, 8, 3, 1, 10, 4]
+
+        let resultado = 0
+
+        for (let i in sumarPares) {
+            if (i % 2 === 0) {
+                resultado += parseInt(i)
+            }
+        }
+        let resultat1Imprimir = document.getElementById(1)
+        resultat1Imprimir.textContent = resultado
+        console.log(resultado)
+
+        //problema2
+
+        let ordenDatos = ["Rodriguez", "8", 9, '5', 4, 'Clara']
+
+        let nombres = ordenDatos
+            .filter(item => isNaN(item))
+            .sort()
+
+
+        let numeros = ordenDatos
+            .filter(item => !isNaN(item))
+            .map(Number)
+
+
+        let suma = numeros.reduce((acumulador, valorActual) => acumulador + valorActual, 0)
+        let media = suma / numeros.length
+
+        let resultadoFinal = [...nombres, ...numeros, media]
+        let resultat2Imprimir = document.getElementById(2)
+        resultat2Imprimir.textContent = resultadoFinal
+
+        console.log(resultadoFinal)
+
+        //problema 3
+
+        filterWords = ["Bob", "Alex", "Zoello"]
+
+        const palabrasSinZ = filterWords.filter(nombre => {
+            return !nombre.toLowerCase().startsWith('z');
+        })
+        let resultat3Imprimir = document.getElementById(3)
+        resultat3Imprimir.textContent = palabrasSinZ
+        console.log(palabrasSinZ)
+
+
+
+    </script>
+    </body>
+
+</html>
