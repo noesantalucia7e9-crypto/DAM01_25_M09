@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="2">Hola</p>
+    <script>
+        let boton = document.getElementById(2)
+        boton.addEventListener("click", () => {
+            console.log("Auch")
+        }
+
+        )
+    </script>
+    <script>
+        boton.addEventListener("dblclick", () => {
+            alert("DEJAMEEE")
+        }
+
+        )
+    </script>
+    <script>
+        boton.addEventListener("mousemove", (e) => {
+            console.log("Coordenada X: " + e.clientX + " | Coordenada Y: " + e.clientY);
+        });
+    </script>
+    <script>
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                alert("¡Presionaste ENTER!");
+            }
+        });
+    </script>
+</body>
+
+</html>
