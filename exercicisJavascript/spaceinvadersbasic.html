@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders</title>
+    <style>
+        .caja {
+            width: 100px;
+            height: 100px;
+
+           
+            background-image: url('../recursos/mikublanca.jpg');
+
+            background-size: cover;
+           
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            bottom: 0;
+
+            transform: translateX(-50%);
+
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body class="juego">
+    <div class="caja">
+
+    </div>
+    <script>
+        let caja = document.querySelector(".caja");
+        document.addEventListener("mousemove", (e) => {
+            console.log("Coordenada X: " + e.clientX + " | Coordenada Y: " + e.clientY);
+            caja.style.transform = `translateX(${e.clientX}px)`;
+        });
+    </script>
+
+    <script>
+
+        document.addEventListener("click", () => {
+            let bala = document.createElement("div");
+
+            bala.style.width = "10px";
+            bala.style.height = "15px";
+            bala.style.backgroundColor = "cyan";
+            bala.style.backgroundImage = "url('recursos/bala_fuego.png')";
+            bala.style.position = "absolute";
+
+
+            let rect = caja.getBoundingClientRect();
+
+            let posicionX = rect.left + (rect.width / 2) - 3;
+            let posicionY = rect.top;
+
+            bala.style.left = posicionX + "px";
+            bala.style.top = posicionY + "px";
+
+            document.body.appendChild(bala);
+
+            let velocidad = 10;
+
+            let timer = setInterval(() => {
+                posicionY -= velocidad;
+                bala.style.top = posicionY + "px";
+
+                if (posicionY < -20) {
+                    clearInterval(timer);
+                    bala.remove();
+                }
+            }, 20);
+        });
+    </script>
+</body>
+
+</html>
+
+</script>
+</body>
+
+</html>
