@@ -35,11 +35,11 @@
 </head>
 
 <body class="juego">
-    <div class="caja">
+    <div id="1" class="caja">
 
     </div>
     <script>
-        let caja = document.querySelector(".caja");
+        let caja = document.getElementById(1);
         document.addEventListener("mousemove", (e) => {
             console.log("Coordenada X: " + e.clientX + " | Coordenada Y: " + e.clientY);
             caja.style.transform = `translateX(${e.clientX}px)`;
@@ -65,10 +65,10 @@
                 bala.style.position = "absolute";
 
 
-                let rect = caja.getBoundingClientRect();
+                let pillarCoordenadaCaja = caja.getBoundingClientRect();
 
-                let posicionX = rect.left + (rect.width / 2) - 3;
-                let posicionY = rect.top;
+                let posicionX = pillarCoordenadaCaja.left + (pillarCoordenadaCaja.width / 2) - 3;
+                let posicionY = pillarCoordenadaCaja.top;
 
                 bala.style.left = posicionX + "px";
                 bala.style.top = posicionY + "px";
