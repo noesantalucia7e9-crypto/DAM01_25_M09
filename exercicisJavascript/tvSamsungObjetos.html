@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const tvSamsung = {
+            nombre: "TV Samsung 42",
+            categoria: "Televisores",
+            unidades: 4,
+            precio: 345.95
+        }
+        tvSamsung.getImporte = function () {
+            return this.precio * tvSamsung.unidades
+        }
+
+        console.log(tvSamsung.getImporte())
+
+        for (prop in tvSamsung) {
+            console.log(prop)
+            for (valor in prop) {
+                console.log(valor)
+            }
+        }
+
+        let tvSamsungJson = JSON.stringify(tvSamsung)
+
+        console.log(tvSamsungJson)
+
+    </script>
+
+</body>
+
+</html>

@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recorre json</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recorre json</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid #000000;
+      padding: 5px;
+    }
+  </style>
 </head>
+
 <body>
- 
-    <script>
-        const alumnosJSON = `[
+  <table id="tablaAlumnos">
+    <tbody id="cuerpoTabla">
+    </tbody>
+  </table>
+
+
+  <script>
+    const alumnosJSON = `[
     {
       "nombre": "Juan",
       "apellidos": "González Pérez",
@@ -151,22 +169,28 @@
     }
   ]`;
 
-  let alumnos = JSON.parse(alumnosJSON);
+    let alumnos = JSON.parse(alumnosJSON);
+    let tabla = document.getElementById('cuerpoTabla');
 
-  let listaAlumnos = Array.from(alumnos)
+    for (let alumno of alumnos) {
 
-  listaAlumnos.forEach( alumno =>
-    {
-        for(let key in alumno){
-            console.log(`${key} = ${alumno[key]}`)
-            texto += `${key} = ${alumno[key]`
-        }
+      let fila = document.createElement('tr');
 
 
+      let datosMostrar = [alumno.nombre, alumno.apellidos, alumno.dni];
+
+      for (let dato of datosMostrar) {
+        let celda = document.createElement('td');
+        celda.textContent = dato;
+        fila.appendChild(celda);
+      }
+
+      tabla.appendChild(fila);
     }
-  )
 
 
-    </script>
+
+  </script>
 </body>
+
 </html>
