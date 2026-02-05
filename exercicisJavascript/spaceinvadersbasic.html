@@ -10,11 +10,11 @@
             width: 100px;
             height: 100px;
 
-           
+
             background-image: url(../recursos/mikublanca1.png);
 
             background-size: cover;
-           
+
             background-position: center;
             background-repeat: no-repeat;
             position: absolute;
@@ -24,6 +24,7 @@
 
             margin-bottom: 20px;
         }
+
         .juego {
             height: 90vh;
             background-image: url(../recursos/mikubeam.jpg);
@@ -34,11 +35,11 @@
 </head>
 
 <body class="juego">
-    <div class="caja">
+    <div id="1" class="caja">
 
     </div>
     <script>
-        let caja = document.querySelector(".caja");
+        let caja = document.getElementById(1);
         document.addEventListener("mousemove", (e) => {
             console.log("Coordenada X: " + e.clientX + " | Coordenada Y: " + e.clientY);
             caja.style.transform = `translateX(${e.clientX}px)`;
@@ -47,38 +48,45 @@
 
     <script>
 
-        document.addEventListener("click", () => {
-            let bala = document.createElement("div");
+        document.addEventListener("keydown", () => {
+            if (event.code === "Space") {
+               bala()
+            }
+ 
+        });
 
-            bala.style.width = "10px";
-            bala.style.height = "15px";
-            bala.style.backgroundColor = "cyan";
-            bala.style.backgroundImage = "url('recursos/bala_fuego.png')";
-            bala.style.position = "absolute";
+        function bala() {
+                let bala = document.createElement("div");
+
+                bala.style.width = "10px";
+                bala.style.height = "15px";
+                bala.style.backgroundColor = "cyan";
+                bala.style.backgroundImage = "url('recursos/bala_fuego.png')";
+                bala.style.position = "absolute";
 
 
-            let rect = caja.getBoundingClientRect();
+                let pillarCoordenadaCaja = caja.getBoundingClientRect();
 
-            let posicionX = rect.left + (rect.width / 2) - 3;
-            let posicionY = rect.top;
+                let posicionX = pillarCoordenadaCaja.left + (pillarCoordenadaCaja.width / 2) - 3;
+                let posicionY = pillarCoordenadaCaja.top;
 
-            bala.style.left = posicionX + "px";
-            bala.style.top = posicionY + "px";
-
-            document.body.appendChild(bala);
-
-            let velocidad = 5;
-
-            let timer = setInterval(() => {
-                posicionY -= velocidad;
+                bala.style.left = posicionX + "px";
                 bala.style.top = posicionY + "px";
 
-                if (posicionY < -20) {
-                    clearInterval(timer);
-                    bala.remove();
-                }
-            }, 2);
-        });
+                document.body.appendChild(bala);
+
+                let velocidad = 5;
+
+                let timer = setInterval(() => {
+                    posicionY -= velocidad;
+                    bala.style.top = posicionY + "px";
+
+                    if (posicionY < -20) {
+                        clearInterval(timer);
+                        bala.remove();
+                    }
+                }, 2);
+            }
     </script>
 </body>
 
