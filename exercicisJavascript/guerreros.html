@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerreros Ordenados</title>
+</head>
+
+<body>
+    <script>
+        class Personaje {
+            nombre;
+            nivel;
+            puntosVida;
+
+            constructor(nombre, nivel, puntosVida) {
+                this.nombre = nombre;
+                this.nivel = nivel;
+                this.puntosVida = puntosVida;
+            }
+
+            atacar() { }
+        }
+
+        class Guerrero extends Personaje {
+            fuerza;
+
+            constructor(nombre, nivel, puntosVida, fuerza) {
+                super(nombre, nivel, puntosVida);
+                this.fuerza = fuerza;
+            }
+
+            golpeEspada() {
+                console.log("Uso su espada de:" + this.fuerza);
+            }
+
+            atacar() {
+                this.golpeEspada();
+            }
+
+            toString() {
+                return `Tipo: Guerrero | Nombre: ${this.nombre} | Nivel: ${this.nivel} | Vida: ${this.puntosVida} | Fuerza: ${this.fuerza}`;
+            }
+
+            valueOf() {
+                return this.nivel;
+            }
+        }
+
+        class Mago extends Personaje {
+            mana;
+
+            constructor(nombre, nivel, puntosVida, mana) {
+                super(nombre, nivel, puntosVida);
+                this.mana = mana;
+            }
+
+            lanzarHechizo() {
+                console.log("El mago lanzó el hechizo y le queda " + this.mana + " de maná");
+            }
+
+            atacar() {
+                this.lanzarHechizo();
+            }
+
+            toString() {
+                return `Tipo: Mago    | Nombre: ${this.nombre} | Nivel: ${this.nivel} | Vida: ${this.puntosVida} | Maná: ${this.mana}`;
+            }
+
+            valueOf() {
+                return this.nivel;
+            }
+        }
+
+        function main() {
+            const personajes = [
+                new Guerrero("Diluc", 10, 150, 80),
+                new Mago("Nahida", 20, 100, 500),
+                new Guerrero("Albedo", 12, 160, 85),
+                new Mago("Mona", 5, 80, 200)
+            ];
+
+
+            personajes.sort((a, b) => a - b);
+
+            for (let personaje of personajes) {
+                console.log(`${personaje}`);
+            }
+        }
+
+        main();
+
+    </script>
+</body>
+
+</html>
