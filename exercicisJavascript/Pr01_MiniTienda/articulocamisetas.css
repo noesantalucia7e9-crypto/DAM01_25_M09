@@ -1,0 +1,88 @@
+/* Contenedor general (opcional, para que las tarjetas se alineen en fila) */
+.contenedor-tienda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    justify-content: center;
+}
+
+/* La Tarjeta */
+.tarjeta {
+    background-color: #e0dede; /* Gris claro de la imagen */
+    width: 280px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    color: #4a4a4a;
+}
+
+/* Título */
+.nombreCamiseta {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #635045; /* Tono marrón/gris oscuro */
+}
+
+/* Imagen */
+.imagenCamiseta {
+    width: 100%;
+    height: auto;
+    background-color: white; /* Fondo blanco tras la camiseta */
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+/* Descripción */
+.descripcionCamiseta {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    height: 120px; /* Altura fija para mantener alineación */
+    overflow-y: auto; /* Por si el texto es muy largo */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Precio */
+.precioCamiseta {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Selectores y Etiquetas */
+.tarjeta label {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.tarjeta select {
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #999;
+    background: white;
+    cursor: pointer;
+}
+
+/* Input de cantidad (aunque no está en tu HTML, la imagen lo tiene) */
+.tarjeta input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    margin-top: 10px;
+}
+.nombreTienda {
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px 0;
+    font-family: 'Arial Black', sans-serif;
+    color: #635045; /* Tono marrón/gris oscuro */
+}
