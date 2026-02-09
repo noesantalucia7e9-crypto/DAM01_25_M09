@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FigurasGeometricas</title>
+</head>
+
+<body>
+    <script>
+
+        class FiguraGeometrica {
+            nombre;
+
+            constructor(nombreFigura) {
+                this.nombre = nombreFigura
+            }
+
+            calularArea() {
+
+            }
+
+        }
+
+        class Rectangulo extends FiguraGeometrica {
+            base;
+            altura;
+
+            constructor(nombre, base, altura) {
+                super(nombre)
+                this.base = base
+                this.altura = altura
+            }
+
+            calularArea() {
+                return base * altura
+            }
+        }
+
+        class Triangulo extends FiguraGeometrica {
+            base;
+            altura;
+
+            constructor(nombre, base, altura) {
+                super(nombre)
+                this.base = base
+                this.altura = altura
+            }
+
+            calularArea() {
+                return (base * altura) / 2
+            }
+        }
+
+        class Circulo extends FiguraGeometrica {
+
+            radio;
+
+            constructor(nombre, radio) {
+                super(nombre)
+                this.radio = radio
+
+            }
+
+            calularArea() {
+                return Math.PI * (radio * radio)
+            }
+        }
+
+
+
+       function main(){
+            let circulo =  new Circulo('circulito',2)
+
+            console.log(circulo.calularArea)
+
+
+            let rectangulo = new Rectangulo('rectangulito',2,4)
+
+            console.log(rectangulo.calularArea)
+
+            let triangulo = new Triangulo('triangulito',2,2)
+
+            console.log(triangulo.calularArea)
+        }
+
+        main()
+    </script>
+</body>
+
+</html>
