@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>API REST</title>
+   <script src="ApiRest.js" defer></script>
+</head>
+<body onload="conectaAPI()">
+   <div id="chistes"></div>
+   <button id="masChistes">Frase de Chuck</button>
+
+
+
+
+    <script>
+        async function conectaAPI() {
+            try {
+                const res = await fetch("https://api.chucknorris.io/jokes/random");
+                if (!res.ok) {
+                    throw new Error(`Error HTTP ${res.status}`);
+                }
+                const json = await res.json();
+                muestraChiste(json.value);
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+
+        function muestraChiste(chiste) {
+           let frase = document.createElement("p")
+           frase.textContent = chiste;
+           document.getElementById("chistes").appendChild(frase)
+
+        }
+        document.getElementById("masChistes").addEventListener("click",conectaAPI);
+
+
+
+    </script>
+</body>
+
+</html>
